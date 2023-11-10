@@ -12,7 +12,7 @@ export interface paths {
             cookie?: never;
         };
         /** クライアント一覧取得 */
-        get: operations["\u30AF\u30E9\u30A4\u30A2\u30F3\u30C8\u4E00\u89A7\u53D6\u5F97"];
+        get: operations["test"];
         put?: never;
         post?: never;
         delete?: never;
@@ -28,8 +28,11 @@ export interface components {
         Client: {
             /** @description ID */
             id?: number;
-            /** @description 名前 */
-            name?: string;
+            /**
+             * @description 名前
+             * @enum {string}
+             */
+            name?: ClientName;
             /** @description メールアドレス */
             email?: string;
             /** @description 作成日時 */
@@ -46,7 +49,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    "\u30AF\u30E9\u30A4\u30A2\u30F3\u30C8\u4E00\u89A7\u53D6\u5F97": {
+    test: {
         parameters: {
             query?: never;
             header?: never;
@@ -64,6 +67,17 @@ export interface operations {
                     "application/json": components["schemas"]["Client"];
                 };
             };
+            /** @description Bad Request */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
         };
     };
+}
+export enum ClientName {
+    _ = "\u30C6\u30B9\u30C8",
+    _2 = "\u30C6\u30B9\u30C82"
 }

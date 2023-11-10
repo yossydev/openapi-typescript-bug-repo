@@ -3,18 +3,22 @@ info:
   version: 1.0.0
   title: api
   description: ""
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
 tags:
   - name: テスト
-    description: ""
+    description: "テスト"
 servers:
-  - url: "http://localhost:4010"
+  - url: /
+
 paths:
   /api/v1/clients:
     get:
       tags:
         - テスト
       summary: クライアント一覧取得
-      operationId: クライアント一覧取得
+      operationId: test
       responses:
         "200":
           description: OK
@@ -22,8 +26,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Client"
+        "400":
+          description: Bad Request
+
+security:
+  - JWT: []
 
 components:
+  securitySchemes:
+    JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
   schemas:
     Client:
       type: object
@@ -34,6 +48,9 @@ components:
         name:
           type: string
           description: 名前
+          enum:
+            - "テスト"
+            - "テスト2"
         email:
           type: string
           description: メールアドレス

@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "api-types-gen": "npx openapi-typescript ./api.yaml -o ./api.d.ts"
+    "api-types-gen": "npx openapi-typescript ./api.yaml -o ./api.d.ts --enum"
   },
   "devDependencies": {
     "openapi-typescript": "^7.0.0-next.2",
