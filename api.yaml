@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: api
+  description: ""
+tags:
+  - name: テスト
+    description: ""
+servers:
+  - url: "http://localhost:4010"
+paths:
+  /api/v1/clients:
+    get:
+      tags:
+        - テスト
+      summary: クライアント一覧取得
+      operationId: クライアント一覧取得
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: 名前
+        email:
+          type: string
+          description: メールアドレス
+        createdAt:
+          type: string
+          description: 作成日時
+        updatedAt:
+          type: string
+          description: 更新日時
